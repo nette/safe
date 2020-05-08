@@ -68,8 +68,16 @@ namespace Nette;
  * @method static int curl_share_errno(resource $sh) { @throws Safe\CurlException }
  * @method static void curl_share_setopt(resource $sh, int $option, string $value) { @throws Safe\CurlException }
  * @method static string curl_unescape(resource $ch, string $str) { @throws Safe\CurlException }
+ * @method static \DateTime date_create_from_format(string $format, string $time, \DateTimeZone $timezone) { @throws Safe\DatetimeException }
+ * @method static \DateTime date_modify(\DateTime $object, string $modify) { @throws Safe\DatetimeException }
+ * @method static \DateTime date_date_set(\DateTime $object, int $year, int $month, int $day) { @throws Safe\DatetimeException }
+ * @method static \DateTime date_isodate_set(\DateTime $object, int $year, int $week, int $day = 1) { @throws Safe\DatetimeException }
  * @method static array date_parse_from_format(string $format, string $date) { @throws Safe\DatetimeException }
  * @method static array date_parse(string $date) { @throws Safe\DatetimeException }
+ * @method static \DateTime date_sub (\DateTime $object, \DateInterval $interval): \DateTime { @throws Safe\DatetimeException }
+ * @method static \DateTime date_time_set(\DateTime $object, int $hour, int $minute, int $second = 0, int $microseconds = 0) { @throws Safe\DatetimeException }
+ * @method static \DateTime date_timestamp_set(\DateTime $object, int $unixtimestamp) { @throws Safe\DatetimeException }
+ * @method static \DateTime date_timezone_set(\DateTime $object, \DateTimeZone $timezone) { @throws Safe\DatetimeException }
  * @method static array date_sun_info(int $time, float $latitude, float $longitude) { @throws Safe\DatetimeException }
  * @method static mixed date_sunrise(int $timestamp, int $format = SUNFUNCS_RET_STRING, float $latitude = null, float $longitude = null, float $zenith = null, float $gmt_offset = 0) { @throws Safe\DatetimeException }
  * @method static mixed date_sunset(int $timestamp, int $format = SUNFUNCS_RET_STRING, float $latitude = null, float $longitude = null, float $zenith = null, float $gmt_offset = 0) { @throws Safe\DatetimeException }
@@ -1178,11 +1186,19 @@ final class Safe
 		'curl_unescape' => [Safe\CurlException::class, 'curl'],
 		'date' => [Safe\DatetimeException::class],
 		'date_*' => [Safe\DatetimeException::class],
-		'date_parse' => [Safe\DatetimeException::class, ''],
+		'date_create_from_format' => [Safe\DatetimeException::class, ''],
+		'date_modify' => [Safe\DatetimeException::class, ''],
+		'date_date_set' => [Safe\DatetimeException::class, ''],
+		'date_isodate_set' => [Safe\DatetimeException::class, ''],
 		'date_parse_from_format' => [Safe\DatetimeException::class, ''],
+		'date_parse' => [Safe\DatetimeException::class, ''],
+		'date_sub' => [Safe\DatetimeException::class, ''],
 		'date_sun_info' => [Safe\DatetimeException::class, ''],
 		'date_sunrise' => [Safe\DatetimeException::class, ''],
 		'date_sunset' => [Safe\DatetimeException::class, ''],
+		'date_time_set' => [Safe\DatetimeException::class, ''],
+		'date_timestamp_set' => [Safe\DatetimeException::class, ''],
+		'date_timezone_set' => [Safe\DatetimeException::class, ''],
 		'db2_*' => [Safe\IbmDb2Exception::class],
 		'db2_autocommit' => [Safe\IbmDb2Exception::class, ''],
 		'db2_bind_param' => [Safe\IbmDb2Exception::class, ''],
